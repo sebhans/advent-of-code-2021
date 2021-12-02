@@ -15,4 +15,8 @@ internal class Day2Test {
     @Test
     fun `horizontal position times depth is correct`() =
         assertEquals(150, solve2_1(input))
+
+    @Test
+    fun `horizontal position times depth with slightly more complicated process is correct`() =
+        assertEquals(900, solve2_2(input))
 }
