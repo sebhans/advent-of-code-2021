@@ -21,4 +21,8 @@ internal class Day3Test {
     @Test
     fun `power consumption is correct`() =
         assertEquals(198, solve3_1(input))
+
+    @Test
+    fun `life support rating is correct`() =
+        assertEquals(230, solve3_2(input))
 }
