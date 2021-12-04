@@ -27,6 +27,10 @@ internal class Day4Test {
 """
 
     @Test
-    fun `final score of winning board is correct`() =
+    fun `final score of first winning board is correct`() =
         assertEquals(4512, solve4_1(input))
+
+    @Test
+    fun `final score of last winning board is correct`() =
+        assertEquals(1924, solve4_2(input))
 }
