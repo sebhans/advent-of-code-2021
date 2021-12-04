@@ -21,7 +21,7 @@ fun solve3_2(input: String) = input.trimmedLines
         oxygenGeneratorRating * co2ScrubberRating
     }
 
-typealias Bits = List<Int>
+private typealias Bits = List<Int>
 
 private fun toBits(s: String) = s.chunked(1).map { it.toInt(2) }
 private fun Bits.toInt() = reduce { n, bit -> n * 2 + bit }
@@ -32,7 +32,7 @@ private fun oneIfAtLeastHalfOf(n: Int) = { m: Int -> if (2 * m >= n) 1 else 0 }
 
 private fun Int.invertBitsUpTo(n: Int) = this xor ((1 shl n) - 1)
 
-typealias BitFilterFunction = (Int, Int) -> Boolean
+private typealias BitFilterFunction = (Int, Int) -> Boolean
 private fun mostCommonBit(bit: Int, mostCommonBit: Int) = bit == mostCommonBit
 private fun leastCommonBit(bit: Int, mostCommonBit: Int) = bit != mostCommonBit
 

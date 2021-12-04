@@ -2,14 +2,14 @@ package days
 
 import trimmedLines
 
-enum class Direction { forward, down, up }
-data class SubmarineCommand(val direction: Direction, val units: Int) {
+private enum class Direction { forward, down, up }
+private data class SubmarineCommand(val direction: Direction, val units: Int) {
     companion object {
         fun fromString(s: String) = s.split(' ').let { SubmarineCommand(Direction.valueOf(it[0]), it[1].toInt()) }
     }
 }
 
-data class Position(val horizontal: Int, val depth: Int) {
+private data class Position(val horizontal: Int, val depth: Int) {
     fun apply(command: SubmarineCommand) =
         when (command.direction) {
             Direction.forward -> copy(horizontal = horizontal + command.units)
@@ -23,7 +23,7 @@ fun solve2_1(input: String) = input.trimmedLines
     .fold(Position(0, 0)) { position, command -> position.apply(command) }
     .let { it.horizontal * it.depth }
 
-data class PositionAndAim(val horizontal: Int, val depth: Int, val aim: Int) {
+private data class PositionAndAim(val horizontal: Int, val depth: Int, val aim: Int) {
     fun apply(command: SubmarineCommand) =
         when (command.direction) {
             Direction.forward -> copy(horizontal = horizontal + command.units, depth = depth + aim * command.units)
