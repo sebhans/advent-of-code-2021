@@ -10,3 +10,6 @@ val <T> Iterable<T>.rest get() = drop(1)
 fun <T> fixedPoint(x: T, f: (T) -> T): T = f(x).let { next -> if (next == x) x else fixedPoint(next, f) }
 
 typealias IntMatrix = List<List<Int>>
+
+val List<Int>.min get() = reduce { n, m -> if (n < m) n else m }
+val List<Int>.max get() = reduce { n, m -> if (n > m) n else m }
