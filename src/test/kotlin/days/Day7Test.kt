@@ -9,4 +9,8 @@ internal class Day7Test {
     @Test
     fun `fuel cost is correct`() =
         assertEquals(37, solve7_1(input))
+
+    @Test
+    fun `fuel cost with better understanding is correct`() =
+        assertEquals(168, solve7_2(input))
 }
