@@ -35,7 +35,7 @@ internal class UtilsTest {
     }
 
     @Test
-    fun `asNumberMatrix yields correct matrix`() {
+    fun `asIntMatrix yields correct matrix`() {
         assertEquals(
             listOf(
                 listOf(1, 2, 3),
