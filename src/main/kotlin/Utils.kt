@@ -3,6 +3,7 @@ val String.splitByEmptyLines get() = split("\n\n")
 val String.asCommaSeparatedInts get() = split(',').map(String::toInt)
 val String.asWhitespaceSeparatedInts get() = trim().split(Regex("\\s+")).map(String::toInt)
 val String.asIntMatrix get() = lines().filter(String::isNotBlank).map { it.asWhitespaceSeparatedInts }
+val String.asDigitList get() = split("").filter(String::isNotBlank).map(String::toInt)
 
 val <T> Iterable<T>.first get() = first()
 val <T> Iterable<T>.rest get() = drop(1)
