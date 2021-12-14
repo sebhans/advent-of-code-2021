@@ -2,6 +2,7 @@ import java.lang.reflect.Modifier
 import kotlin.reflect.KFunction
 import kotlin.reflect.jvm.javaMethod
 import kotlin.reflect.jvm.kotlinFunction
+import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>) {
     println("Advent of Code 2021")
@@ -27,6 +28,14 @@ private fun daySolver(day: Int, puzzle: Int) =
         null
     }
 
-private fun KFunction<*>?.printResultFor(input: String) = println("    " + (this?.call(input) ?: "No result yet"))
+private fun KFunction<*>?.printResultFor(input: String) {
+    var result: Any?
+    val time = measureTimeMillis {
+        result = this?.call(input)
+    }
+    if (result != null) {
+        println("    $result ($time ms)")
+    }
+}
 
 private fun currentClass(): Class<*> = ::currentClass.javaMethod!!.declaringClass
