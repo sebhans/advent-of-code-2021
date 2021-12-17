@@ -21,7 +21,7 @@ private fun daySolver(day: Int, puzzle: Int) =
     try {
         currentClass()
             .classLoader
-            .loadClass("days.Day${day}Kt")
+            .loadClass("day${day}.Day${day}Kt")
             .methods
             .find { it.name == "solve${day}_$puzzle" && Modifier.isStatic(it.modifiers) }
             ?.kotlinFunction
