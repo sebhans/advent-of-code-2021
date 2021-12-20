@@ -28,11 +28,11 @@ data class ImageEnhancementAlgorithm(private val pixelMap: List<Int>) {
         topLeft: Int, top: Int, topRight: Int,
         left: Int, center: Int, right: Int,
         bottomLeft: Int, bottom: Int, bottomRight: Int
-    ) = enhance((topLeft shl 8) + (top shl 7) + (topRight shl 6) +
+    ) = pixelMap[(topLeft shl 8) + (top shl 7) + (topRight shl 6) +
                 (left shl 5) + (center shl 4) + (right shl 3) +
-                (bottomLeft shl 2) + (bottom shl 1) + bottomRight)
+                (bottomLeft shl 2) + (bottom shl 1) + bottomRight]
 
-    fun enhance(pixelSum: Int) = pixelMap[pixelSum]
+    fun enhance(pixel: Int) = pixelMap[if (pixel == 0) 0 else 511]
 }
 
 data class Image(private val pixels: List<List<Int>>, private val defaultPixel: Int) {
@@ -56,7 +56,7 @@ data class Image(private val pixels: List<List<Int>>, private val defaultPixel: 
                     })
                 }
             },
-            if (defaultPixel == 0) algorithm.enhance(0) else algorithm.enhance(511)
+            algorithm.enhance(defaultPixel)
         )
 
     fun applyAlgorithm(algorithm: ImageEnhancementAlgorithm, times: Int) =
