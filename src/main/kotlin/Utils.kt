@@ -17,3 +17,5 @@ val List<Int>.min get() = reduce { n, m -> if (n < m) n else m }
 val List<Int>.max get() = reduce { n, m -> if (n > m) n else m }
 
 data class Coordinate(val x: Int, val y: Int)
+
+data class Coordinate3(val x: Int, val y: Int, val z: Int)
