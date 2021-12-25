@@ -6,7 +6,7 @@ import kotlin.system.measureTimeMillis
 
 fun main(args: Array<String>) {
     println("Advent of Code 2021")
-    val days = args.map(String::toInt).takeIf { it.isNotEmpty() } ?: 1..24
+    val days = args.map(String::toInt).takeIf { it.isNotEmpty() } ?: 1..25
     for (day in days) {
         val input = readInput("input$day.txt")
         println("Day $day:")
